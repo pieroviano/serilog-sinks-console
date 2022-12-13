@@ -45,14 +45,26 @@ namespace Serilog.Sinks.SystemConsole.Themes
         /// </summary>
         /// <param name="styles">Styles to apply within the theme.</param>
         /// <exception cref="ArgumentNullException">When <paramref name="styles"/> is <code>null</code></exception>
-        public SystemConsoleTheme(IReadOnlyDictionary<ConsoleThemeStyle, SystemConsoleThemeStyle> styles)
+        public SystemConsoleTheme(
+#if NET35 || NET40
+            IDictionary
+#else
+            IReadOnlyDictionary
+#endif
+            <ConsoleThemeStyle, SystemConsoleThemeStyle> styles)
         {
             if (styles is null) throw new ArgumentNullException(nameof(styles));
             Styles = styles.ToDictionary(kv => kv.Key, kv => kv.Value);
         }
 
         /// <inheritdoc/>
-        public IReadOnlyDictionary<ConsoleThemeStyle, SystemConsoleThemeStyle> Styles { get; }
+        public
+#if NET35 || NET40
+            IDictionary
+#else
+            IReadOnlyDictionary
+#endif
+            <ConsoleThemeStyle, SystemConsoleThemeStyle> Styles { get; }
 
         /// <inheritdoc/>
         public override bool CanBuffer => false;

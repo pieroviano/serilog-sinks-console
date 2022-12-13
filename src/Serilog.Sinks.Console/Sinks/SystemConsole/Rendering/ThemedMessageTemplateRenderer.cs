@@ -38,7 +38,13 @@ namespace Serilog.Sinks.SystemConsole.Rendering
             _unthemedValueFormatter = valueFormatter.SwitchTheme(NoTheme);
         }
 
-        public int Render(MessageTemplate template, IReadOnlyDictionary<string, LogEventPropertyValue> properties, TextWriter output)
+        public int Render(MessageTemplate template,
+#if NET35 || NET40
+            IDictionary
+#else
+            IReadOnlyDictionary
+#endif
+                <string, LogEventPropertyValue> properties, TextWriter output)
         {
             var count = 0;
             foreach (var token in template.Tokens)
@@ -64,7 +70,13 @@ namespace Serilog.Sinks.SystemConsole.Rendering
             return count;
         }
 
-        int RenderPropertyToken(PropertyToken pt, IReadOnlyDictionary<string, LogEventPropertyValue> properties, TextWriter output)
+        int RenderPropertyToken(PropertyToken pt,
+#if NET35 || NET40
+            IDictionary
+#else
+            IReadOnlyDictionary
+#endif
+                <string, LogEventPropertyValue> properties, TextWriter output)
         {
             if (!properties.TryGetValue(pt.PropertyName, out var propertyValue))
             {

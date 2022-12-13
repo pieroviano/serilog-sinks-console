@@ -20,6 +20,7 @@ using Serilog.Sinks.SystemConsole;
 using Serilog.Sinks.SystemConsole.Output;
 using Serilog.Sinks.SystemConsole.Themes;
 using System;
+using System.Collections.Generic;
 
 namespace Serilog
 {
@@ -66,7 +67,11 @@ namespace Serilog
             if (sinkConfiguration is null) throw new ArgumentNullException(nameof(sinkConfiguration));
             if (outputTemplate is null) throw new ArgumentNullException(nameof(outputTemplate));
 
-            var appliedTheme = !applyThemeToRedirectedOutput && (System.Console.IsOutputRedirected || System.Console.IsErrorRedirected) ?
+            var appliedTheme = !applyThemeToRedirectedOutput
+#if !NET35 && !NET40
+                               && (System.Console.IsOutputRedirected || System.Console.IsErrorRedirected) 
+#endif
+                ?
                 ConsoleTheme.None :
                 theme ?? SystemConsoleThemes.Literate;
 

@@ -45,7 +45,13 @@ namespace Serilog.Sinks.SystemConsole.Themes
         /// </summary>
         public static AnsiConsoleTheme Sixteen { get; } = AnsiConsoleThemes.Sixteen;
 
-        readonly IReadOnlyDictionary<ConsoleThemeStyle, string> _styles;
+        readonly
+#if NET35 || NET40
+            IDictionary
+#else
+            IReadOnlyDictionary
+#endif
+            <ConsoleThemeStyle, string> _styles;
         const string AnsiStyleReset = "\x1b[0m";
 
         /// <summary>
@@ -53,7 +59,13 @@ namespace Serilog.Sinks.SystemConsole.Themes
         /// </summary>
         /// <param name="styles">Styles to apply within the theme.</param>
         /// <exception cref="ArgumentNullException">When <paramref name="styles"/> is <code>null</code></exception>
-        public AnsiConsoleTheme(IReadOnlyDictionary<ConsoleThemeStyle, string> styles)
+        public AnsiConsoleTheme(
+#if NET35 || NET40
+            IDictionary
+#else
+            IReadOnlyDictionary
+#endif
+                <ConsoleThemeStyle, string> styles)
         {
             if (styles is null) throw new ArgumentNullException(nameof(styles));
             _styles = styles.ToDictionary(kv => kv.Key, kv => kv.Value);
