@@ -8,4 +8,3 @@ MSBuild.exe serilog-sinks-console.sln -m /property:Configuration=%Configuration%
 git add -A
 git commit -a --allow-empty-message -m ''
 git push
-cd ..
