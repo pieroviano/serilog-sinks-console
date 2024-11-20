@@ -1,50 +1,50 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-16"?>
 <Project Sdk="Microsoft.NET.Sdk">
-  <PropertyGroup>
-    <PackageOutputPath>$(SolutionDir)Packages/</PackageOutputPath>
-  </PropertyGroup>
-  <Import Project="$(UserProfile)\.nuget\packages\nugetutility\$(NuGetUtilityVersion)\build\NuGet.Utility.props" Condition="Exists('$(UserProfile)\.nuget\packages\nugetutility\$(NuGetUtilityVersion)\build\NuGet.Utility.props')" />
-  <Import Project="$(UserProfile)\.nuget\packages\nugetutility\$(NuGetUtilityVersion)\build\NuGet.Utility.targets" Condition="Exists('$(UserProfile)\.nuget\packages\nugetutility\$(NuGetUtilityVersion)\build\NuGet.Utility.targets')" />
-  <ItemGroup>
-    <PackageReference Include="NuGetUtility" Version="$(NuGetUtilityVersion)" PrivateAssets="All" Condition="'$(TargetFramework)'!='netstandard1.3' and '$(TargetFramework)'!='netstandard2.0'" />
-  </ItemGroup>
-  <PropertyGroup>
-    <Description>A Serilog sink that writes log events to the console/terminal.</Description>
-    <SerilogSyncConsoleVersion Condition="'$(SerilogSyncConsoleVersion)' == ''">4.1.1</SerilogSyncConsoleVersion>
-    <Version>$(VersionPrefix).$(VersionSuffix)</Version>
-    <Authors>Serilog Contributors</Authors>
-    <TargetFrameworks>net35;net40;net45;netstandard1.3;netstandard2.0;net5.0</TargetFrameworks>
-    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <IncludeSymbols Condition="'$(Configuration)'=='Debug'">true</IncludeSymbols>
-    <SymbolPackageFormat Condition="'$(Configuration)'=='Debug'">snupkg</SymbolPackageFormat>
-    <IncludeSymbols Condition="'$(Configuration)'!='Debug'">false</IncludeSymbols>
-    <LangVersion>8.0</LangVersion>
-    <Nullable>enable</Nullable>
-    <AssemblyOriginatorKeyFile>../../assets/Serilog.snk</AssemblyOriginatorKeyFile>
-    <SignAssembly>true</SignAssembly>
-    <PublicSign Condition=" '$(OS)' != 'Windows_NT' ">true</PublicSign>
-    <PackageTags>serilog;console;terminal</PackageTags>
-    <PackageIcon>icon.png</PackageIcon>
-    <PackageProjectUrl>https://github.com/serilog/serilog-sinks-console</PackageProjectUrl>
-    <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
-    <RepositoryUrl>https://github.com/serilog/serilog-sinks-console</RepositoryUrl>
-    <RepositoryType>git</RepositoryType>
-    <GenerateDocumentationFile>true</GenerateDocumentationFile>
-    <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
-    <RootNamespace>Serilog</RootNamespace>
-    <PackageId>Net4x.$(MSBuildProjectName)</PackageId>
-    <IncludeSymbols>True</IncludeSymbols>
-    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
-    <PackageOutputPath>$(SolutionDir)Packages\</PackageOutputPath>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(TargetFramework)' != 'net35' and '$(TargetFramework)' != 'net40' and '$(TargetFramework)' != 'net45' ">
-    <DefineConstants>$(DefineConstants);RUNTIME_INFORMATION</DefineConstants>
-  </PropertyGroup>
-  <ItemGroup>
-    <PackageReference Include="Net4x.Serilog" Version="$(SerilogVersion).$(VersionBuildSuffix)" />
-    <PackageReference Include="Nullable" Version="1.3.0" PrivateAssets="all" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="..\..\assets\icon.png" Pack="true" Visible="false" PackagePath="" />
-  </ItemGroup>
+    <PropertyGroup>
+        <PackageOutputPath>$(SolutionDir)Packages/</PackageOutputPath>
+    </PropertyGroup>
+    <Import Project="$(UserProfile)\.nuget\packages\nugetutility\$(NuGetUtilityVersion)\build\NuGet.Utility.props" Condition="Exists('$(UserProfile)\.nuget\packages\nugetutility\$(NuGetUtilityVersion)\build\NuGet.Utility.props')" />
+    <Import Project="$(UserProfile)\.nuget\packages\nugetutility\$(NuGetUtilityVersion)\build\NuGet.Utility.targets" Condition="Exists('$(UserProfile)\.nuget\packages\nugetutility\$(NuGetUtilityVersion)\build\NuGet.Utility.targets')" />
+    <ItemGroup>
+        <PackageReference Include="NuGetUtility" Version="$(NuGetUtilityVersion)" PrivateAssets="All" Condition="'$(TargetFramework)'!='netstandard1.3' and '$(TargetFramework)'!='netstandard2.0'" />
+    </ItemGroup>
+    <PropertyGroup>
+        <Description>A Serilog sink that writes log events to the console/terminal.</Description>
+        <SerilogSyncConsoleVersion Condition="'$(SerilogSyncConsoleVersion)' == ''">4.1.1</SerilogSyncConsoleVersion>
+        <Version>$(VersionPrefix).$(VersionSuffix)</Version>
+        <Authors>Serilog Contributors</Authors>
+        <TargetFrameworks>net35;net40;net45;netstandard1.3;netstandard2.0;net5.0</TargetFrameworks>
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+        <IncludeSymbols Condition="'$(Configuration)'=='Debug'">true</IncludeSymbols>
+        <SymbolPackageFormat Condition="'$(Configuration)'=='Debug'">snupkg</SymbolPackageFormat>
+        <IncludeSymbols Condition="'$(Configuration)'!='Debug'">false</IncludeSymbols>
+        <LangVersion>8.0</LangVersion>
+        <Nullable>enable</Nullable>
+        <AssemblyOriginatorKeyFile>../../assets/Serilog.snk</AssemblyOriginatorKeyFile>
+        <SignAssembly>true</SignAssembly>
+        <PublicSign Condition=" '$(OS)' != 'Windows_NT' ">true</PublicSign>
+        <PackageTags>serilog;console;terminal</PackageTags>
+        <PackageIcon>icon.png</PackageIcon>
+        <PackageProjectUrl>https://github.com/serilog/serilog-sinks-console</PackageProjectUrl>
+        <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
+        <RepositoryUrl>https://github.com/serilog/serilog-sinks-console</RepositoryUrl>
+        <RepositoryType>git</RepositoryType>
+        <GenerateDocumentationFile>true</GenerateDocumentationFile>
+        <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
+        <RootNamespace>Serilog</RootNamespace>
+        <PackageId>Net4x.$(MSBuildProjectName)</PackageId>
+        <IncludeSymbols>True</IncludeSymbols>
+        <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+        <PackageOutputPath>$(SolutionDir)Packages\</PackageOutputPath>
+    </PropertyGroup>
+    <PropertyGroup Condition=" '$(TargetFramework)' != 'net35' and '$(TargetFramework)' != 'net40' and '$(TargetFramework)' != 'net45' ">
+        <DefineConstants>$(DefineConstants);RUNTIME_INFORMATION</DefineConstants>
+    </PropertyGroup>
+    <ItemGroup>
+        <PackageReference Include="Net4x.Serilog" Version="$(SerilogVersion).$(VersionBuildSuffix)" />
+        <PackageReference Include="Nullable" Version="1.3.0" PrivateAssets="all" />
+    </ItemGroup>
+    <ItemGroup>
+        <None Include="..\..\assets\icon.png" Pack="true" Visible="false" PackagePath="" />
+    </ItemGroup>
 </Project>
