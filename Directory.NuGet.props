@@ -158,6 +158,7 @@
     <SerilogAspNetCoreVersion>8.0.3</SerilogAspNetCoreVersion>
     <serilogextensionsloggingVersion>3.2.0</serilogextensionsloggingVersion>
     <SerilogExtensionsLoggingVersion>3.2.0</SerilogExtensionsLoggingVersion>
+    <serilogsinksconsoleallVersion>4.2.0</serilogsinksconsoleallVersion>
     <serilogsinksconsoleVersion>4.2.0</serilogsinksconsoleVersion>
     <serilogsinksfileVersion>5.1.0</serilogsinksfileVersion>
     <SerilogSinksFileVersion>5.1.0</SerilogSinksFileVersion>
