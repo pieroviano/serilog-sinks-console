@@ -1,12 +1,12 @@
-<?xml version="1.0" encoding="utf-16"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project Sdk="Microsoft.NET.Sdk">
     <PropertyGroup>
         <PackageOutputPath>$(SolutionDir)Packages/</PackageOutputPath>
     </PropertyGroup>
-    <Import Project="$(UserProfile)\.nuget\packages\nugetutility\$(NuGetUtilityVersion)\build\NuGet.Utility.props" Condition="Exists('$(UserProfile)\.nuget\packages\nugetutility\$(NuGetUtilityVersion)\build\NuGet.Utility.props')" />
-    <Import Project="$(UserProfile)\.nuget\packages\nugetutility\$(NuGetUtilityVersion)\build\NuGet.Utility.targets" Condition="Exists('$(UserProfile)\.nuget\packages\nugetutility\$(NuGetUtilityVersion)\build\NuGet.Utility.targets')" />
+    <Import Condition="Exists('$(UserProfile)\.nuget\packages\nugetutility\$(NuGetUtilityVersion)\build\NuGet.Utility.props')" Project="$(UserProfile)\.nuget\packages\nugetutility\$(NuGetUtilityVersion)\build\NuGet.Utility.props" />
+    <Import Condition="Exists('$(UserProfile)\.nuget\packages\nugetutility\$(NuGetUtilityVersion)\build\NuGet.Utility.targets')" Project="$(UserProfile)\.nuget\packages\nugetutility\$(NuGetUtilityVersion)\build\NuGet.Utility.targets" />
     <ItemGroup>
-        <PackageReference Include="NuGetUtility" Version="$(NuGetUtilityVersion)" PrivateAssets="All" Condition="'$(TargetFramework)'!='netstandard1.3' and '$(TargetFramework)'!='netstandard2.0'" />
+        <PackageReference Include="NuGetUtility" Condition="'$(TargetFramework)'!='netstandard1.3' and '$(TargetFramework)'!='netstandard2.0'" PrivateAssets="All" Version="$(NuGetUtilityVersion)" />
     </ItemGroup>
     <PropertyGroup>
         <Description>A Serilog sink that writes log events to the console/terminal.</Description>
@@ -41,10 +41,10 @@
         <DefineConstants>$(DefineConstants);RUNTIME_INFORMATION</DefineConstants>
     </PropertyGroup>
     <ItemGroup>
-        <PackageReference Include="Net4x.Serilog" Version="$(SerilogVersion).$(VersionBuildSuffix)" />
-        <PackageReference Include="Nullable" Version="1.3.0" PrivateAssets="all" />
+        <PackageReference Include="Net4x.Serilog.Library" Version="$(SerilogVersion).$(VersionBuildSuffix)" />
+        <PackageReference Include="Nullable" PrivateAssets="all" Version="1.3.0" />
     </ItemGroup>
     <ItemGroup>
-        <None Include="..\..\assets\icon.png" Pack="true" Visible="false" PackagePath="" />
+        <None Include="..\..\assets\icon.png" Pack="true" PackagePath="" Visible="false" />
     </ItemGroup>
 </Project>
