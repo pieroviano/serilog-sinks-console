@@ -7926,5 +7926,18 @@
         "PackageReferences": null
       }
     ]
+  },
+  {
+    "Solution": {
+      "Path": "D:\\CommonLibrary\\serilog-sinks-console\\serilog-sinks-console.nuget.sln",
+      "Version": "serilogsinksconsolenugetVersion"
+    },
+    "NuGetPackages": [
+      {
+        "Name": "Net4x.Serilog.Sinks.Console",
+        "Project": "src\\Serilog.Sinks.Console\\Serilog.Sinks.Console.csproj",
+        "PackageReferences": null
+      }
+    ]
   }
 ]

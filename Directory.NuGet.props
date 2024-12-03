@@ -227,6 +227,7 @@
     <SerilognugetVersion>2.13.0</SerilognugetVersion>
     <serilogsinksconsoleallnugetVersion>4.2.0</serilogsinksconsoleallnugetVersion>
     <serilogsinksconsoleallVersion>4.2.0</serilogsinksconsoleallVersion>
+    <serilogsinksconsolenugetVersion>4.2.0</serilogsinksconsolenugetVersion>
     <serilogsinksconsoleVersion>4.2.0</serilogsinksconsoleVersion>
     <serilogsinksfileVersion>5.1.0</serilogsinksfileVersion>
     <SerilogSinksFileVersion>5.1.0</SerilogSinksFileVersion>
